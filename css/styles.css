@@ -4,7 +4,8 @@
   --primary-text-main:#2E2F42;
   --secondary-text-main:#434455;
   --accent-color: #4D5AE5;
-  --text-hero-footer: #FFFFFF; 
+  --text-hero-footer: #FFFFFF;
+  --transition-duration-and-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -81,6 +82,10 @@ padding-bottom: 120px;
 
  
 .header {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
 display: flex;
 align-items: center;
 border-bottom: 1px solid #E7E9FC;
@@ -127,13 +132,14 @@ display: flex;
 
  
 .menu-list-item {
+  position: relative;
   padding: 24px 0;
   font-weight: 500; 
   font-size: 16px;
   line-height: 1.50; 
   letter-spacing: 0.02em;
   color: var(--primary-text-main);
-  
+  transition: color var(--transition-duration-and-func);
 }
 
   
@@ -163,6 +169,7 @@ display: flex;
   
 .contact-link {
    color: var(--secondary-text-main);
+   transition: color var(--transition-duration-and-func);
 }
  
 .contacts-links:not(:last-child) {
@@ -635,3 +642,51 @@ margin-bottom: 72px;
   letter-spacing: 0.02em;
   color: var(--secondary-text-main);
 }
+
+/*======Модальное окно======*/
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: visibility var(--transition-duration-and-func), opacity var(--transition-duration-and-func);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+} 
+
+.modal {
+  position: absolute; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 408px;
+  height: 584px;
+  background-color: #ffffff;
+} 
+
+.modal-close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  padding: 0;
+  cursor: pointer;
+}
+
+
+
