@@ -755,6 +755,7 @@ margin-bottom: 72px;
 } 
 
 .modal-close-icon {
+  fill: #2E2F42;    
   transition: fill var(--transition-duration-and-func);
 
 } 
